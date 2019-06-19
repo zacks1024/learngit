@@ -1,0 +1,37 @@
+让Git显示颜色，会让命令输出看起来更醒目：
+$ git config --global color.ui true
+全局通用配置：
+$ git config --global user.email "kaixia1998@163.com"
+$ git config --global user.name "kaixia"
+
+基本命令：
+$ git init  //初始化版本仓库，只需执行一次
+$ git add zack1024.txt  //添加到版本管理
+$ git commit -m "第一次修改-夏恺真帅"  //注释说明
+$ git status  //查看仓库状态
+$ git log  // 查看版本日志
+$ git log --pretty=oneline  //查看版本号
+$ git reset --hard HEAD^  //回退到上一个版本
+$ git reset --hard 0bc8e21a  //转至到某一版本
+$ git reflog  //查看命令历史，回退到未来某一版本
+0bc8e21a
+版本号：前七位
+
+工作区有一个隐藏的目录.git
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：先add，再commit
+第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+
+执行一次commit命令所有在暂存区的文件全部提交。（清空暂存区）
+$ git add .  //将所有文件提交
+$ git checkout -- readme.txt  //删除刚在工作区做出的修改
+$ git reset HEAD zack1024.txt  //删除提交到暂存区的文件，文本修改不做变化，放回工作区
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+
+$ ssh-keygen -t rsa -C "kaixia1998@163.com"  //生成RSA非对称公私钥
+$ git remote add origin git@gitee.com:zack1024/git.git
+$ git pull origin master --allow-unrelated-historises  //
+$ git 
